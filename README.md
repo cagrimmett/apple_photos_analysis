@@ -20,7 +20,9 @@ Then this launches `count_days.py` with the Python launcher, which counts the nu
 
 Open this file with `Script Editor.app`, which is usually in `Applications/Utilities`. Press "Run" or hit cmd + R. Depending on the size of your photo library, it might take anywhere from a few seconds to a few minutes. It took 37 seconds for my 8275 photos.
 
-You'll see TextWrangler flash by for a second, then Python should launch and 
+You'll see TextWrangler flash by for a second, then Python should launch, run the counts, then produce a chart that looks something like this, except with your own stats:
+
+![Number of photos taken on each day of the week](img/count_of_days.png)
 
 ## Dependencies
 
