@@ -12,6 +12,10 @@ This is a personal project to apply some data science skills I've been learning.
 ## extract_metadata_from_photos_app.scpt
 This file takes the date and location information from all of your photos in Photos.app on Mac OS X and writes them to a file called `photo_dates_location.csv` with the proper headers inside the same folder where this script is stored. It then opens the file with TextWrangler and runs two find and replace functions to clean up the formatting of the file. TextWrangler then saves the file and quits.
 
+### How to use
+
+Open this file with `Script Editor.app`, which is usually in `Applications/Utilities`. Press "Run" or hit cmd + R. Depending on the size of your photo library, it might take anywhere from a few seconds to a few minutes. It took 37 seconds for my 8275 photos.
+
 ## Dependencies
 
 1. Mac OS X (I'm using 10.11, but it should work on 10.10 and above) with the built-in [Script Editor](http://guides.macrumors.com/Script_Editor) still installed.
