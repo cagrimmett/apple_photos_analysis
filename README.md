@@ -1,8 +1,8 @@
 # Photos.app Date and Location Analysis
-This is a personal project to apply some data science skills I've been learning.
+This is a personal project to apply some data science skills I've been learning. My goal was to make a project where I do everything from start to finish: Identify and create my own data set, format it, analyze it, then visualize it.
 
 - Extracting data
-  - Using AppleScript to loop through photo metadata and writing it to a CSV
+  - Using AppleScript to loop through photo metadata in Photos.app and writing it to a CSV
 - Getting the data in a usable format
   - Using grep to break apart the date strings into days, dates, and times
 - Process/analyze the data and get insights from it
@@ -11,20 +11,28 @@ This is a personal project to apply some data science skills I've been learning.
   - D3.js
   - matplotlib
 
-## extract_metadata_from_photos_app.scpt
-This file takes the date and location information from all of your photos in Photos.app on Mac OS X and writes them to a file called `photo_dates_location.csv` with the proper headers inside the same folder where this script is stored. 
+## all.scpt
 
-It then opens the file with TextWrangler and runs two find and replace functions to clean up the formatting of the file. TextWrangler then saves the file and quits.
-
-Then this launches `count_days.py` with the Python launcher, which counts the number of times a day is used and then plots it with `matplotlib`
+This is the AppleScript that contains the instructions for running everything from beginning to end. It runs each of the individual scripts below then launches the resulting images in Preview.
 
 ### How to use
 
-Open this file with `Script Editor.app`, which is usually in `Applications/Utilities`. Press "Run" or hit cmd + R. Depending on the size of your photo library, it might take anywhere from a few seconds to a few minutes. It took 37 seconds for my 8275 photos.
+Open `all.scpt` with `Script Editor.app`, which is usually in `Applications/Utilities`. Press "Run" or hit cmd + R. Depending on the size of your photo library, it might take anywhere from a few seconds to a few minutes. It took 37 seconds for my 8275 photos.
 
-You'll see TextWrangler flash by for a second, then Python should launch, run the counts, then produce two charts and save them to the `img` folder. They should look look something like this:
+You'll see TextWrangler flash by for a second, then the Python script will run the counts in the background, then Preview will launch and show two charts with your data. They should look look something like this:
 ![Number of photos taken on each day of the week](img/weekdays_bar_example.png)
 ![Percentage of photos by weekday](img/weekdays_pie_example.png)
+
+## The Scripts
+
+###  extract_metadata_from_photos_app.scpt
+This file takes the date and location information from all of your photos in Photos.app on Mac OS X and writes them to a file called `photo_dates_location.csv` with the proper headers inside the same folder where this script is stored. 
+
+### reformat_with_textwrangler.scpt
+This AppleScript opens the CSV generated above in TextWrangler and runs two find and replace functions to clean up the formatting of the file. TextWrangler then saves the file and quits.
+
+### count_days.py
+This Python script reads the cleaned-up CSV, counts how many photos were taken on each of the days of the week, then uses [matplotlob](http://matplotlib.org) to make bar and pie charts out of the resulting data. These charts are then saved to the `img` folder.
 
 ## Dependencies
 

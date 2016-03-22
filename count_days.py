@@ -1,8 +1,11 @@
 #!/usr/bin/python
+import os
 import csv
 from collections import Counter
 
-with open('photo_dates_location.csv') as f:
+location = os.getcwd()
+
+with open(location + '/photo_dates_location.csv') as f:
     reader = csv.reader(f, delimiter=',', quotechar='"')
     reader.next() #skip header
     day_csv = [row[0] for row in reader]
