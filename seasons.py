@@ -19,7 +19,7 @@ winter = {"December","January","February"}
 count = Counter(month)
 
 month_name = [i.split(' ')[0] for i in month] 
-spring_total = winter_total = sum(v for k, v in [(x, month_name.count(x)) for x in set(spring)])
+spring_total = sum(v for k, v in [(x, month_name.count(x)) for x in set(spring)])
 summer_total = sum(v for k, v in [(x, month_name.count(x)) for x in set(summer)])
 fall_total = sum(v for k, v in [(x, month_name.count(x)) for x in set(fall)])
 winter_total = sum(v for k, v in [(x, month_name.count(x)) for x in set(winter)])
