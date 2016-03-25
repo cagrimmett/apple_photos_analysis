@@ -11,19 +11,28 @@ This is a personal project to apply some data science skills I've been learning.
   - D3.js
   - matplotlib
 
-## all.scpt
+## Dependencies
 
-This is the AppleScript that contains the instructions for running everything from beginning to end. It runs each of the individual scripts below then launches the resulting images in Preview.
+1. Mac OS X (I'm using 10.11, but it should work on 10.10 and above) with the built-in [Script Editor](http://guides.macrumors.com/Script_Editor) still installed.
+2. Photos inside [Photos.app](https://www.apple.com/osx/photos/), the built-in photos application on Mac OS X 10.10 and above
+3. [TextWrangler](https://itunes.apple.com/us/app/textwrangler/id404010395?mt=12), a free text editor on Mac OS X
+4. [Python](https://www.python.org/downloads/)
 
-### How to use
+## How to use
 
 Open `all.scpt` with `Script Editor.app`, which is usually in `Applications/Utilities`. Press "Run" or hit cmd + R. Depending on the size of your photo library, it might take anywhere from a few seconds to a few minutes. It took 37 seconds for my 8275 photos.
 
-You'll see TextWrangler flash by for a second, then the Python script will run the counts in the background, then Preview will launch and show two charts with your data. They should look look something like this:
+You'll see TextWrangler flash by for a second, then the Python script will run the counts in the background, then Preview will launch and show four charts with your data. They should look look something like this:
 ![Number of photos taken on each day of the week](img/weekdays_bar_example.png)
 ![Percentage of photos by weekday](img/weekdays_pie_example.png)
+![Number of photos by season](img/seasons_bar_example.png)
+![Percentage of photos by season](img/seasons_pie_example.png)
 
 ## The Scripts
+
+### all.scpt
+
+This is the AppleScript that contains the instructions for running everything from beginning to end. It runs each of the individual scripts below then launches the resulting images in Preview.
 
 ###  extract_metadata_from_photos_app.scpt
 This file takes the date and location information from all of your photos in Photos.app on Mac OS X and writes them to a file called `photo_dates_location.csv` with the proper headers inside the same folder where this script is stored. 
@@ -34,15 +43,11 @@ This AppleScript opens the CSV generated above in TextWrangler and runs two find
 ### count_days.py
 This Python script reads the cleaned-up CSV, counts how many photos were taken on each of the days of the week, then uses [matplotlob](http://matplotlib.org) to make bar and pie charts out of the resulting data. These charts are then saved to the `img` folder.
 
-## Dependencies
-
-1. Mac OS X (I'm using 10.11, but it should work on 10.10 and above) with the built-in [Script Editor](http://guides.macrumors.com/Script_Editor) still installed.
-2. Photos inside [Photos.app](https://www.apple.com/osx/photos/), the built-in photos application on Mac OS X 10.10 and above
-3. [TextWrangler](https://itunes.apple.com/us/app/textwrangler/id404010395?mt=12), a free text editor on Mac OS X
-4. [Python 2](https://www.python.org/downloads/)
+### seasons.py
+This Python script searches through the dates and organizes them by season, sums the totals, then uses [matplotlob](http://matplotlib.org) to make bar and pie charts out of the resulting data. These charts are then saved to the `img` folder.
 
 ## To Do
 - [x] Create Python scripts to count days of the week
-- [ ] Break down seasons
+- [x] Break down seasons
 - [ ] Cluster time of day
 - [ ] Put locations on a map
