@@ -10,7 +10,6 @@ with open(location + '/photo_dates_location.csv') as f:
     reader.next() #skip header
     month = [row[1] for row in reader]
 
-
 spring = {"March","April","May"}
 summer = {"June","July","August"}
 fall = {"September","October","November"}
@@ -34,12 +33,22 @@ seasons = ["Spring","Summer","Fall","Winter"]
 counts = [spring_total, summer_total, fall_total, winter_total]
 
 ######## Bar Chart ########
+plt.figure(figsize=(10,8))
 colors = ['yellowgreen', 'lightskyblue', 'orange', 'lightgrey']
 xs = [i + 0.1 for i, _ in enumerate(seasons)]
 plt.bar(xs, counts, color=colors)
 plt.ylabel("Number of photos taken")
 plt.title("Photo counts by season")
 plt.xticks([i + 0.5 for i, _ in enumerate(seasons)], seasons)
+def autolabel(rects):
+    # attach some text labels
+    for rect in rects:
+        height = rect.get_height()
+        plt.text(rect.get_x() + rect.get_width()/2., 1.0*height,
+                '%d' % int(height),
+                ha='center', va='bottom')
+rect = plt.bar(xs, counts, color = colors)
+autolabel(rect)
 #plt.show()
 plt.savefig('img/seasons_bar.png')
 plt.clf()

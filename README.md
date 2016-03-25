@@ -25,6 +25,7 @@ Open `all.scpt` with `Script Editor.app`, which is usually in `Applications/Util
 You'll see TextWrangler flash by for a second, then the Python script will run the counts in the background, then Preview will launch and show four charts with your data. They should look look something like this:
 ![Number of photos taken on each day of the week](img/weekdays_bar_example.png)
 ![Percentage of photos by weekday](img/weekdays_pie_example.png)
+![Number of photos by month](img/months_bar_example.png)
 ![Number of photos by season](img/seasons_bar_example.png)
 ![Percentage of photos by season](img/seasons_pie_example.png)
 
@@ -42,6 +43,9 @@ This AppleScript opens the CSV generated above in TextWrangler and runs two find
 
 ### count_days.py
 This Python script reads the cleaned-up CSV, counts how many photos were taken on each of the days of the week, then uses [matplotlob](http://matplotlib.org) to make bar and pie charts out of the resulting data. These charts are then saved to the `img` folder.
+
+### months.py
+This Python script searches through the dates and organizes them by month, sums the totals, then uses [matplotlob](http://matplotlib.org) to make a bar chart out of the resulting data. This chart is then saved to the `img` folder.
 
 ### seasons.py
 This Python script searches through the dates and organizes them by season, sums the totals, then uses [matplotlob](http://matplotlib.org) to make bar and pie charts out of the resulting data. These charts are then saved to the `img` folder.

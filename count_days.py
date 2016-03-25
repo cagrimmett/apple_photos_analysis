@@ -34,12 +34,22 @@ for (k,v) in days_sorted:
 from matplotlib import pyplot as plt
 
 ######## Bar Chart ########
+plt.figure(figsize=(10,8))
 colors = ['red', 'orange', 'green', 'purple', 'lightcoral', 'lightskyblue', 'yellowgreen']
 xs = [i + 0.1 for i, _ in enumerate(days)]
 plt.bar(xs, count, color = colors)
 plt.ylabel("Number of photos taken")
 plt.title("Photo frequency by day")
 plt.xticks([i + 0.5 for i, _ in enumerate(days)], days)
+def autolabel(rects):
+    # attach some text labels
+    for rect in rects:
+        height = rect.get_height()
+        plt.text(rect.get_x() + rect.get_width()/2., 1.0*height,
+                '%d' % int(height),
+                ha='center', va='bottom')
+rect = plt.bar(xs, count, color = colors)
+autolabel(rect)
 #plt.show()
 plt.savefig('img/weekdays_bar.png')
 plt.clf()
