@@ -39,7 +39,7 @@ colors = ['red', 'orange', 'green', 'purple', 'lightcoral', 'lightskyblue', 'yel
 xs = [i + 0.1 for i, _ in enumerate(days)]
 plt.bar(xs, count, color = colors)
 plt.ylabel("Number of photos taken")
-plt.title("Photo frequency by day")
+plt.suptitle("Photos by Day", fontsize=18)
 plt.xticks([i + 0.5 for i, _ in enumerate(days)], days)
 def autolabel(rects):
     # attach some text labels

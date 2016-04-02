@@ -38,7 +38,7 @@ colors = ['yellowgreen', 'lightskyblue', 'orange', 'lightgrey']
 xs = [i + 0.1 for i, _ in enumerate(seasons)]
 plt.bar(xs, counts, color=colors)
 plt.ylabel("Number of photos taken")
-plt.title("Photo counts by season")
+plt.suptitle("Number of photos by season", fontsize=18)
 plt.xticks([i + 0.5 for i, _ in enumerate(seasons)], seasons)
 def autolabel(rects):
     # attach some text labels
