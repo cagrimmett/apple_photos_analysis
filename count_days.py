@@ -35,6 +35,7 @@ from matplotlib import pyplot as plt
 
 ######## Bar Chart ########
 plt.figure(figsize=(10,8))
+plt.rcParams['patch.edgecolor'] = 'white' 
 colors = ['red', 'orange', 'green', 'purple', 'lightcoral', 'lightskyblue', 'yellowgreen']
 xs = [i + 0.1 for i, _ in enumerate(days)]
 plt.bar(xs, count, color = colors)

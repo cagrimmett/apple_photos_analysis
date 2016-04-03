@@ -25,6 +25,7 @@ count = Counter(time_csv)
 
 ######## Pie chart ########
 count = [ampm_split.count("PM"),ampm_split.count("AM")]
+plt.rcParams['patch.edgecolor'] = 'white' 
 labels = ['PM','AM']
 colors = ['#90DBFD', '#E36A1E']
 plt.pie(count, colors=colors, labels=labels, autopct='%1.1f%%')

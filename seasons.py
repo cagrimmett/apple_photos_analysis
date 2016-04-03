@@ -34,6 +34,7 @@ counts = [spring_total, summer_total, fall_total, winter_total]
 
 ######## Bar Chart ########
 plt.figure(figsize=(10,8))
+plt.rcParams['patch.edgecolor'] = 'white' 
 colors = ['yellowgreen', 'lightskyblue', 'orange', 'lightgrey']
 xs = [i + 0.1 for i, _ in enumerate(seasons)]
 plt.bar(xs, counts, color=colors)

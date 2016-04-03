@@ -24,6 +24,7 @@ count = [item[1] for item in month_count]
 ######## Bar Chart ########
 plt.figure(figsize=(15,10))
 color = ["lightgreen","purple","orange","blue","red"]
+plt.rcParams['patch.edgecolor'] = 'white' 
 xs = [i + 0.1 for i, _ in enumerate(month)]
 plt.bar(xs, count, color=color)
 plt.ylabel("Number of photos taken")
