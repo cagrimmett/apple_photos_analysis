@@ -24,7 +24,7 @@ fall_total = sum(v for k, v in [(x, month_name.count(x)) for x in set(fall)])
 winter_total = sum(v for k, v in [(x, month_name.count(x)) for x in set(winter)])
 
 
-print "spring: ", spring_total, "- summer: ", summer_total, "- fall: ", fall_total,	"- winter: ", winter_total
+#print "spring: ", spring_total, "- summer: ", summer_total, "- fall: ", fall_total,	"- winter: ", winter_total
 
 
 from matplotlib import pyplot as plt

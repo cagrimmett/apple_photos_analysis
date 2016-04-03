@@ -18,7 +18,7 @@ ampm_split = [i.split(' ')[1] for i in time_csv]
 
 count = Counter(time_csv)
 
-print "PM: ", ampm_split.count("PM"), "AM: ", ampm_split.count("AM")
+#print "PM: ", ampm_split.count("PM"), "AM: ", ampm_split.count("AM")
 
 #pm_total = sum(v for k, v in [(x, month_name.count(x)) for x in set(spring)])
 

@@ -28,6 +28,7 @@ You'll see TextWrangler flash by for a second, then the Python script will run t
 ![Number of photos by month](img/months_bar_example.png)
 ![Number of photos by season](img/seasons_bar_example.png)
 ![Percentage of photos by season](img/seasons_pie_example.png)
+![AM vs PM](img/am_pm_pie_example.png)
 
 ## The Scripts
 
@@ -42,16 +43,21 @@ This file takes the date and location information from all of your photos in Pho
 This AppleScript opens the CSV generated above in TextWrangler and runs two find and replace functions to clean up the formatting of the file. TextWrangler then saves the file and quits.
 
 ### count_days.py
-This Python script reads the cleaned-up CSV, counts how many photos were taken on each of the days of the week, then uses [matplotlob](http://matplotlib.org) to make bar and pie charts out of the resulting data. These charts are then saved to the `img` folder.
+This Python script reads the cleaned-up CSV, counts how many photos were taken on each of the days of the week, then uses [matplotlib](http://matplotlib.org) to make bar and pie charts out of the resulting data. These charts are then saved to the `img` folder.
 
 ### months.py
-This Python script searches through the dates and organizes them by month, sums the totals, then uses [matplotlob](http://matplotlib.org) to make a bar chart out of the resulting data. This chart is then saved to the `img` folder.
+This Python script searches through the dates and organizes them by month, sums the totals, then uses [matplotlib](http://matplotlib.org) to make a bar chart out of the resulting data. This chart is then saved to the `img` folder.
 
 ### seasons.py
-This Python script searches through the dates and organizes them by season, sums the totals, then uses [matplotlob](http://matplotlib.org) to make bar and pie charts out of the resulting data. These charts are then saved to the `img` folder.
+This Python script searches through the dates and organizes them by season, sums the totals, then uses [matplotlib](http://matplotlib.org) to make bar and pie charts out of the resulting data. These charts are then saved to the `img` folder.
+
+### hours.py
+This Python script splits the time strings and counts how many are AM vs PM, then uses [matplotlib](http://matplotlib.org) to make a pie chart out of the resulting data. This chart is saved to the `img` folder. This will eventually also break down the hour blocks as well.
 
 ## To Do
 - [x] Create Python scripts to count days of the week
 - [x] Break down seasons
+- [x] AM vs PM 
 - [ ] Cluster time of day
+- [ ] [Calendar view](http://bl.ocks.org/mbostock/4063318)
 - [ ] Put locations on a map
