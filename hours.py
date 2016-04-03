@@ -27,7 +27,7 @@ count = Counter(time_csv)
 count = [ampm_split.count("PM"),ampm_split.count("AM")]
 plt.rcParams['patch.edgecolor'] = 'white' 
 labels = ['PM','AM']
-colors = ['#90DBFD', '#E36A1E']
+colors = ['#D76D6E','#9BBAD8']
 plt.pie(count, colors=colors, labels=labels, autopct='%1.1f%%')
 plt.axis('equal')
 plt.suptitle("AM vs PM photos", fontsize=20)
