@@ -29,6 +29,7 @@ You'll see TextWrangler flash by for a second, then the Python script will run t
 ![Number of photos by season](img/seasons_bar_example.png)
 ![Percentage of photos by season](img/seasons_pie_example.png)
 ![AM vs PM](img/am_pm_pie_example.png)
+![Hour Groupings](img/hours_grouped_bar_example.png)
 
 ## The Scripts
 
@@ -52,12 +53,12 @@ This Python script searches through the dates and organizes them by month, sums 
 This Python script searches through the dates and organizes them by season, sums the totals, then uses [matplotlib](http://matplotlib.org) to make bar and pie charts out of the resulting data. These charts are then saved to the `img` folder.
 
 ### hours.py
-This Python script splits the time strings and counts how many are AM vs PM, then uses [matplotlib](http://matplotlib.org) to make a pie chart out of the resulting data. This chart is saved to the `img` folder. This will eventually also break down the hour blocks as well.
+This Python script splits the time strings and counts how many are AM vs PM, then uses [matplotlib](http://matplotlib.org) to make a pie chart out of the resulting data. This chart is saved to the `img` folder. This script also uses [regex](http://www.regular-expressions.info) to find and count the number of times a photo was taken within a given hour block and makes a bar chart out of the resulting data.
 
 ## To Do
 - [x] Create Python scripts to count days of the week
 - [x] Break down seasons
 - [x] AM vs PM 
-- [ ] Cluster time of day
+- [x] Group hour by time of day
 - [ ] [Calendar view](http://bl.ocks.org/mbostock/4063318)
 - [ ] Put locations on a map
