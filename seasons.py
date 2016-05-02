@@ -5,7 +5,7 @@ from collections import Counter
 
 location = os.getcwd()
 
-with open(location + '/photo_dates_location.csv') as f:
+with open(location + '/photo_dates.csv') as f:
     reader = csv.reader(f, delimiter=',', quotechar='"')
     reader.next() #skip header
     month = [row[1] for row in reader]

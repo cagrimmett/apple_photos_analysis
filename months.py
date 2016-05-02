@@ -7,7 +7,7 @@ from matplotlib import pyplot as plt
 
 location = os.getcwd()
 
-with open(location + '/photo_dates_location.csv') as f:
+with open(location + '/photo_dates.csv') as f:
     reader = csv.reader(f, delimiter=',', quotechar='"')
     reader.next() #skip header
     month_csv = [row[1] for row in reader]

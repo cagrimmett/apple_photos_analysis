@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Where your photos were taken</title>
+
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+
+<style type="text/css">
+	.feature {
+		fill: none;
+		stroke: white;
+		stroke-width: 1px;
+  		stroke-linejoin: round;
+	}
+	.mesh {
+		fill: none;
+  		stroke: #ccc;
+  		stroke-width: 1px;
+  		stroke-linejoin: round;
+	}
+	h1 {
+		font-family: sans-serif;
+	}
+	svg#map {
+		margin: 0 auto;
+	}
+</style>
+</head>
+<body>
+	<h1>Where your photos were taken inside the US</h1>
+	<p>Visit <a href="http://github.com/cagrimmett/apple_photos_analysis">http://github.com/cagrimmett/apple_photos_analysis</a> for more info.</p>
+
+
+<script type="text/javascript">
+
+var width = 1200,
+    height = 700;
+
+// set projection
+var projection = d3.geo.mercator();
+
+// create path variable
+var path = d3.geo.path()
+    .projection(projection);
+
+
+d3.json("us.json", function(error, topo) { console.log(topo);
+
+  	states = topojson.feature(topo, topo.objects.states).features
+
+  	// set projection parameters
+  	projection
+      .scale(1150)
+      .center([-102, 41])
+
+    // create svg variable
+    var svg = d3.select("body").append("svg")
+    				.attr("width", width)
+    				.attr("height", height)
+    				.attr("id", "map");
+
+	// add states from topojson
+	svg.selectAll("path")
+      .data(states).enter()
+      .append("path")
+      .attr("class", "feature")
+      .style("fill", "#32649A")
+      .attr("d", path);
+
+
+    // put boarder around states 
+  	svg.append("path")
+      .datum(topojson.mesh(topo, topo.objects.states, function(a, b) { return a !== b; }))
+      .attr("class", "mesh")
+      .attr("d", path);
+
+
+	// load and display the photos as circles
+	d3.csv("photo_locations.csv", function(error, data) {
+	    svg.selectAll("circle")
+	       .data(data)
+	       .enter()
+	       .append("circle")
+	       .attr("cx", function(d) {
+	               return projection([d.lon, d.lat])[0];
+	       })
+	       .attr("cy", function(d) {
+	               return projection([d.lon, d.lat])[1];
+	       })
+	       .attr("r", 5)
+	       .style("fill", "#FABC2D");
+	});
+
+});
+
+
+</script>
+    
+</body>
+</html>
