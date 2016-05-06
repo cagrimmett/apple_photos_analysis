@@ -15,14 +15,16 @@ This is a personal project to apply some data science skills I've been learning.
 
 1. Mac OS X (I'm using 10.11, but it should work on 10.10 and above) with the built-in [Script Editor](http://guides.macrumors.com/Script_Editor) still installed.
 2. Photos inside [Photos.app](https://www.apple.com/osx/photos/), the built-in photos application on Mac OS X 10.10 and above
-3. [TextWrangler](https://itunes.apple.com/us/app/textwrangler/id404010395?mt=12), a free text editor on Mac OS X
-4. [Python](https://www.python.org/downloads/)
+3. [TextWrangler](https://itunes.apple.com/us/app/textwrangler/id404010395?mt=12), a free text editor on Mac OS X (You'll need to download this most likely. Available in the app store.)
+4. [Python](https://www.python.org/downloads/) (Most Macs have this preinstalled!)
 
 ## How to use
 
-Open `all.scpt` with `Script Editor.app`, which is usually in `Applications/Utilities`. Press "Run" or hit cmd + R. Depending on the size of your photo library, it might take anywhere from a few seconds to a few minutes. It took 37 seconds for my 8275 photos.
+Open `all.scpt` with `Script Editor.app`, which is usually in `Applications/Utilities`. Press "Run" or hit cmd + R. Depending on the size of your photo library, it might take anywhere from a few seconds to a few minutes. It took about a minute and a half for my 9454 photos.
 
-You'll see TextWrangler flash by for a second, then the Python script will run the counts in the background, then Preview will launch and show four charts with your data. They should look look something like this:
+You'll see TextWrangler flash by for a second, then the Python script will run the counts in the background, then Preview will launch and show four charts with your data. Depending on your network settings, you may also get a prompt asking about incoming network connections for the Python SimpleHTTPServer. Feel free to hit "Accept" or "Deny" – it doesn't make a difference. Safari will then launch and show the map.
+
+They should look look something like this:
 ![Number of photos taken on each day of the week](img/weekdays_bar_example.png)
 ![Percentage of photos by weekday](img/weekdays_pie_example.png)
 ![Number of photos by month](img/months_bar_example.png)
@@ -63,7 +65,7 @@ This Python script searches through the dates and organizes them by season, sums
 This Python script splits the time strings and counts how many are AM vs PM, then uses [matplotlib](http://matplotlib.org) to make a pie chart out of the resulting data. This chart is saved to the `img` folder. This script also uses [regex](http://www.regular-expressions.info) to find and count the number of times a photo was taken within a given hour block and makes a bar chart out of the resulting data.
 
 ### locations/locations.html
-This HTML file takes `photo_locations.csv` and plots the lat, long on a map of the US with [D3.js](http://d3js.org). The `us.json` file in that folder enables the D3.js script to draw the state boundaries.
+This HTML file takes `photo_locations.csv` and plots the lat, long on a map of the US with [D3.js](http://d3js.org). The `us.json` file in that folder enables the D3.js script to draw the state boundaries. This is shown in Safari and served by Python's SimpleHTTPServer to avoid cross origin issues. If you are trying to preview the file by itself outside of the AppleScript workflow and can't see the map, open Terminal.app, `cd` to the `locations` folder in this repo, and run `python -m SimpleHTTPServer`. This file will then be available at [http://localhost:8000/locations.html](http://localhost:8000/locations.html).
 
 ## Assumptions and possible issues
 - My photos in Photos.app come from a few different iPhones, so my processing of the metadata certainly works for that, but I don't have access to different kinds of phones, so I can't guarantee that metadata from other types of phones will pass. If you want to help me test this, get in touch!

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Where your photos were taken</title>
 
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 
 <style type="text/css">
@@ -46,7 +46,7 @@ var path = d3.geo.path()
     .projection(projection);
 
 
-d3.json("us.json", function(error, topo) { console.log(topo);
+d3.json("/us.json", function(error, topo) { console.log(topo);
 
   	states = topojson.feature(topo, topo.objects.states).features
 
@@ -78,7 +78,7 @@ d3.json("us.json", function(error, topo) { console.log(topo);
 
 
 	// load and display the photos as circles
-	d3.csv("photo_locations.csv", function(error, data) {
+	d3.csv("/photo_locations.csv", function(error, data) {
 	    svg.selectAll("circle")
 	       .data(data)
 	       .enter()
