@@ -1,6 +1,8 @@
 # Photos.app Date and Location Analysis
 This is a personal project to apply some data science skills I've been learning. My goal was to make a project where I do everything from start to finish: Identify and create my own data set, format it, analyze it, then visualize it.
 
+You can find my [project post-game write-up here](http://cagrimmett.com/data-viz/2016/05/16/photo-metadata-analysis-project.html).
+
 - Extracting data
   - Using AppleScript to loop through photo metadata in Photos.app and writing it to a CSV
 - Getting the data in a usable format
